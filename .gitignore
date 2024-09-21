@@ -1,24 +1,55 @@
-# Logs
-logs
+### Node.js ###
+node_modules/
+package-lock.json
+yarn.lock
+
+### Build Output ###
+build/
+dist/
+
+### Logs ###
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+### Environment Files ###
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+### Vercel ###
+.vercel/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+### IDE ###
+.vscode/
+.idea/
+
+### Misc ###
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+### Testing ###
+coverage/
+*.test.js
+*.test.jsx
+*.test.ts
+*.test.tsx
+
+### Dependencies ###
+*.app
+*.g.xlf
+*.flf
+
+### AL and Dynamics 365 Business Central ###
+.alcache/
+.alpackages/
+.snapshots/
+.output/
+rad.json
+TestResults.xml
+
+### Temporary Files ###
+*.tmp
+*.swp
+*.swo
+.vercel
