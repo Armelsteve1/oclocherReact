@@ -1,0 +1,19 @@
+nav {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 128, 128, 1) 0%,
+    rgba(0, 206, 209, 1) 100%
+  );
+  padding: 1rem;
+}
+
+a {
+  color: white;
+  margin: 0 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: yellow;
+  transform: scale(1.1);
+}
