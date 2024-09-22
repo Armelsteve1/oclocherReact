@@ -7,16 +7,18 @@ import {
   VStack,
   Stack,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { motion, isValidMotionProp } from 'framer-motion';
+import { chakra } from '@chakra-ui/react';
 
-const AnimatedBox = motion(Box);
+const MotionBox = chakra(motion.div, {
+  shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === 'children',
+});
 
 const Homepage = () => {
   return (
-    <AnimatedBox
+    <MotionBox
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
       h="100vh"
       w="100%"
       bgGradient="linear(to-r, teal.400, teal.600)"
@@ -117,7 +119,7 @@ const Homepage = () => {
           </Stack>
         </VStack>
       </Flex>
-    </AnimatedBox>
+    </MotionBox>
   );
 };
 
