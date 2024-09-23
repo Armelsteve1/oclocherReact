@@ -33,10 +33,8 @@ function AppContent() {
 
   return (
     <>
-      {/* N'affiche pas la Navbar si on est sur /mon-espace ou /home */}
       {!hideNavbar && <Navbar />}
       <Routes>
-        {/* Route de la page d'accueil publique */}
         <Route
           path="/"
           element={
@@ -49,9 +47,7 @@ function AppContent() {
             </>
           }
         />
-        {/* Route pour la page d'authentification */}
         <Route path="/mon-espace" element={<AuthPage />} />
-        {/* Route pour la page d'accueil de l'app après authentification */}
         <Route path="/home" element={<AppHome />} />
       </Routes>
     </>
