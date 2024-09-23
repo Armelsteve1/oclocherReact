@@ -7,7 +7,12 @@ import {
   VStack,
   Stack,
 } from '@chakra-ui/react';
-import { motion, isValidMotionProp } from 'framer-motion';
+import {
+  motion,
+  isValidMotionProp,
+  useScroll,
+  useTransform,
+} from 'framer-motion';
 import { chakra } from '@chakra-ui/react';
 
 const MotionBox = chakra(motion.div, {
@@ -15,13 +20,15 @@ const MotionBox = chakra(motion.div, {
 });
 
 const Homepage = () => {
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
     <MotionBox
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      style={{ opacity }}
       h="100vh"
       w="100%"
-      bgGradient="linear(to-r, teal.400, teal.600)"
+      bgGradient="linear(to-r, teal.600, green.500)"
     >
       <Flex
         h="100vh"

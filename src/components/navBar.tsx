@@ -26,7 +26,6 @@ const Navbar = () => {
       zIndex={10}
     >
       <Flex h={16} alignItems="center" justifyContent="space-between">
-        {/* Logo */}
         <Box as="a" href="/" onClick={() => window.location.reload()}>
           <Image
             src="/OClocherlogo.webp"
@@ -36,7 +35,6 @@ const Navbar = () => {
           />
         </Box>
 
-        {/* Navigation links */}
         <HStack as="nav" spacing={8} display={{ base: 'none', md: 'flex' }}>
           <CustomLink href="#abon">Abonnements Paroisses</CustomLink>
           <CustomLink href="#aide">Aide aux Admins</CustomLink>
@@ -44,7 +42,6 @@ const Navbar = () => {
           <CustomLink href="#dioceses">Diocèses</CustomLink>
         </HStack>
 
-        {/* Button Contact */}
         <HStack spacing={6} display={{ base: 'none', md: 'flex' }}>
           <Button
             as="a"
@@ -55,9 +52,17 @@ const Navbar = () => {
           >
             Contactez-nous
           </Button>
+          <Button
+            as="a"
+            href="/mon-espace"
+            colorScheme="teal"
+            variant="outline"
+            _hover={{ bg: 'teal.100' }}
+          >
+            Mon Espace
+          </Button>
         </HStack>
 
-        {/* Mobile Menu Button */}
         <IconButton
           size="md"
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -67,7 +72,6 @@ const Navbar = () => {
         />
       </Flex>
 
-      {/* Mobile Menu */}
       {isOpen ? (
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as="nav" spacing={4}>
@@ -84,6 +88,15 @@ const Navbar = () => {
             >
               Contactez-nous
             </Button>
+            <Button
+              as="a"
+              href="/mon-espace"
+              colorScheme="teal"
+              variant="outline"
+              _hover={{ bg: 'teal.100' }}
+            >
+              Mon Espace
+            </Button>
           </Stack>
         </Box>
       ) : null}
@@ -91,7 +104,6 @@ const Navbar = () => {
   );
 };
 
-// Composant CustomLink avec des effets CSS
 const CustomLink = ({ href, children }: any) => (
   <Link
     href={href}
