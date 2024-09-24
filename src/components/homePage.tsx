@@ -6,6 +6,7 @@ import {
   Button,
   VStack,
   Stack,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import {
   motion,
@@ -22,6 +23,23 @@ const MotionBox = chakra(motion.div, {
 const Homepage = () => {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const textSizeTitle = useBreakpointValue({
+    base: '4xl',
+    md: '6xl',
+    lg: '7xl',
+  });
+  const textSizeSubtitle = useBreakpointValue({
+    base: 'xl',
+    md: '2xl',
+    lg: '5xl',
+  });
+  const textSizePoints = useBreakpointValue({
+    base: 'lg',
+    md: 'xl',
+    lg: '2xl',
+  });
+  const imageSize = useBreakpointValue({ base: '100%', md: '70%', lg: '45%' });
 
   return (
     <MotionBox
@@ -40,9 +58,9 @@ const Homepage = () => {
         textAlign={{ base: 'center', lg: 'left' }}
       >
         <Box
-          w={{ base: '100%', md: '70%', lg: '45%' }}
+          w={imageSize}
           mb={{ base: 10, lg: 0 }}
-          display={{ base: 'none', md: 'block' }}
+          display={{ base: 'block', md: 'block' }}
         >
           <Image
             src="/oclocheapp.webp"
@@ -57,28 +75,20 @@ const Homepage = () => {
           alignItems={{ base: 'center', lg: 'flex-start' }}
         >
           <Box>
-            <Text
-              fontSize={{ base: '5xl', md: '6xl', lg: '7xl' }}
-              fontWeight="bold"
-              color="white"
-            >
+            <Text fontSize={textSizeTitle} fontWeight="bold" color="white">
               OClocher
             </Text>
-            <Text
-              fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }}
-              color="white"
-              mt={4}
-            >
+            <Text fontSize={textSizeSubtitle} color="white" mt={4}>
               Le réseau paroissial au service de l'Église
             </Text>
             <Box mt={6}>
-              <Text fontSize={{ base: 'xl', md: '2xl' }} color="white" mb={3}>
+              <Text fontSize={textSizePoints} color="white" mb={3}>
                 ✔ Faciliter la vie des prêtres & bénévoles.
               </Text>
-              <Text fontSize={{ base: 'xl', md: '2xl' }} color="white" mb={3}>
+              <Text fontSize={textSizePoints} color="white" mb={3}>
                 ✔ Faire grandir la fraternité entre paroissiens.
               </Text>
-              <Text fontSize={{ base: 'xl', md: '2xl' }} color="white" mb={3}>
+              <Text fontSize={textSizePoints} color="white" mb={3}>
                 ✔ Être toujours plus missionnaires !
               </Text>
             </Box>
